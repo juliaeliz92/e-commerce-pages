@@ -1,0 +1,141 @@
+body {
+    background-image: url('./background.jpg');
+    background-size: 400%;
+    font-family: "Afacad Flux", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+}
+
+.form-container form {
+    width: min-content;
+    font-size: 18px;
+}
+
+fieldset {
+    border: none;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+fieldset legend {
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+}
+
+fieldset .input-container {
+    text-align: left;
+    width: min-content;
+}
+
+input {
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input.invalid {
+    border-color: red;
+}
+
+input[type='submit'] {
+    padding: 10px;
+    font-size: 16px;
+}
+
+input:not([type='submit']) + .requirements, 
+input:not([type='submit']) + #email-error-message {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease-out; 
+}
+
+input:not([type='submit']):hover + .requirements,
+input:not([type='submit']):focus + .requirements,
+input:not([type='submit']):active + .requirements,
+input:not([type='submit']).invalid + #email-error-message {
+    transition: max-height 1s ease-in;
+    max-height: 1000px;
+}
+
+ul.requirements, ul#email-error-message {
+    padding: 0 10px;
+}
+
+ul.requirements li::before, ul#email-error-message li::before {
+    content: '\2022';
+    margin-right: 15px;
+}
+
+ul.requirements li.valid {
+    color: green;
+}
+
+ul.requirements li.valid::marker, ul#email-error-message li::marker {
+    font-size: 0;
+}
+
+ul.requirements li.valid::before {
+    content: '\2714 \fe0e';
+    margin-right: 7px;
+}
+
+ul.requirements li.invalid::before, ul#email-error-message li::before {
+    content: '\274C \fe0e';
+    margin-right: 7px;
+}
+
+ul.requirements li.invalid, ul#email-error-message {
+    color: red
+} 
+
+@media screen and (min-width: 425px) {
+    body {
+        background-size: 300%;
+    }
+    .form-container {
+        padding: 50px 40px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        background-size: 175%;
+    }
+    .form-container {
+        padding: 70px 100px;
+    }
+    fieldset legend { 
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        background-size: 130%;
+    }
+
+    .form-container {
+        padding: 130px 160px;
+    }
+    fieldset legend { 
+        font-size: 36px;
+    }
+}

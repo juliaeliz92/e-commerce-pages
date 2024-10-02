@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registration.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    <title>User Registration</title>
+</head>
+<body>
+    <div class="form-container">
+        <form>
+            <fieldset>
+                <legend>User Creation</legend>
+                <div class="input-container">
+                    <label for="email">Enter your email</label><br>
+                    <input type="email" id="email" required/>
+                    <ul id="email-error-message" >
+                        <li>incorrect email pattern</li>
+                    </ul>
+                </div>
+                <div class="input-container">
+                    <label for="pswd1">Enter your password</label><br>
+                    <input type="password" id="pswd1" minlength="8" maxlength="15" required/>
+                    <ul class="requirements">
+                        <li>password length should be between 8 and 15</li>
+                        <li>should have a number</li>
+                        <li>should have a special character</li>
+                        <li>should have a uppercase letter</li>
+                        <li>should have a lowercase letter</li>
+                    </ul>
+                </div>
+                <div class="input-container">
+                    <label for="pswd2">Re-enter password</label><br>
+                    <input type="password" id="pswd2" required/>
+                    <ul class="requirements">
+                        <li>should match the password</li>
+                    </ul>
+                </div>
+                <input type="submit" value="Submit"/>
+            </fieldset>
+        </form>
+    </div>
+    <script src="./registration.js" />
+</body>
+</html>
