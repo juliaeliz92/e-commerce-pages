@@ -6,6 +6,105 @@
     <title>Flight booking</title>
 </head>
 <body>
-    
+    <div>
+        <form>
+            <div class="flight-type-container">
+                <div class="radio-control">
+                    <input type="radio" name="flight-type" id="round-trip" value="round-trip" checked>
+                    <label for="round-trip">round trip</label>
+                </div>
+                <div class="radio-control">
+                    <input type="radio" name="flight-type" value="one-way" id="one-way">
+                    <label for="one-way">one way</label>
+                </div>
+                <div class="radio-control">
+                    <input type="radio" name="flight-type" value="multi-city" id="multi-city">
+                    <label for="multi-city">multi city</label>
+                </div>
+            </div>
+            <div id="place-container">
+                <div class="flight-container">
+                    <div class="input-container">
+                        <label for="from-place">from</label>
+                        <input type="text" placeholder="city or airport" name="from-place">
+                    </div>
+                    <div class="input-container" id="to-place-container">
+                        <label for="to-place">to</label>
+                        <input type="text" placeholder="city or airport" id="to-place" >
+                    </div>
+                </div>
+            </div>
+            <div id="multi-city-container">
+                <div class="flight-container" id="flight-1">
+                    <div class="input-container">
+                        <label for="from-place">from</label>
+                        <input type="text" placeholder="city or airport" id="from-place-1">
+                    </div>
+                    <div class="input-container">
+                        <label for="to-place">to</label>
+                        <input type="text" placeholder="city or airport" id="to-place-1">
+                    </div>
+                    <div class="input-container">
+                        <label for="outbound-date">outbound date</label>
+                        <input type="date" placeholder="yyyy-mm-dd" id="outbound-date-1">
+                    </div>
+                </div>
+                <div class="flight-container" id="flight-2">
+                    <div class="input-container">
+                        <label for="from-place">from</label>
+                        <input type="text" placeholder="city or airport" id="from-place-2">
+                    </div>
+                    <div class="input-container">
+                        <label for="to-place">to</label>
+                        <input type="text" placeholder="city or airport" id="to-place-2">
+                    </div>
+                    <div class="input-container">
+                        <label for="outbound-date">outbound date</label>
+                        <input type="date" placeholder="yyyy-mm-dd" id="outbound-date-2">
+                    </div>
+                </div>
+            </div>
+            <div id="add-flight-container">
+                <input type="button" value="Add flight" id="add-flight-button">
+            </div>
+            <div id="date-container">
+                <div class="input-container">
+                    <label for="departing-date">departing date</label>
+                    <input type="date" placeholder="yyyy-mm-dd" id="departing-date">
+                </div>
+                <div class="input-container" id="returning-date-container">
+                    <label for="returning-date">returning date</label>
+                    <input type="date" placeholder="yyyy-mm-dd" id="returning-date">
+                </div>
+            </div>
+            
+            <div class="passenger-container">
+                <h4>Passengers</h4>
+                
+                <div id="stepper-container">
+                    <div class="stepper-control" id="adult-passenger-stepper">
+                        <label for="adult-passenger-stepper"></label>
+                        <button>-</button>
+                        <span id="adult-passenger-count">0</span>
+                        <button>+</button>
+                    </div>
+                    <div class="stepper-control" id="childer-passenger-stepper">
+                        <button>-</button>
+                        <span id="children-passenger-count">0</span>
+                        <button>+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="passenger-class-container">
+                <label for="travel-class">travel class</label>
+                <select id="travel-class" name="travel-class">
+                    <option value="economy-class">economy class</option>
+                    <option value="business-class">business class</option>
+                    <option value="first-class">first class</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <script src="./flight-booking.js" />
 </body>
 </html>

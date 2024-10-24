@@ -26,10 +26,7 @@ CustomValidations.prototype = {
     checkValidity: function(input) {
         for(var i = 0; i < this.validityChecks.length; ++i) {
             let isInvalid = this.validityChecks[i].isInvalid(input);
-            console.log(isInvalid)
             let requirementElement = this.validityChecks[i].element;
-            console.log(requirementElement)
-            console.log(this.validityChecks[i].invalidityMessage)
             if(isInvalid) {
                 this.addInvalidity(this.validityChecks[i].invalidityMessage)
                 requirementElement?.classList.add('invalid')
