@@ -195,9 +195,11 @@ CustomValidations.prototype = {
         this.checkValidity(this.inputNode)
         if(this.inputNode.CustomValidations.invalidities.length === 0 && this.inputNode.value !== '') {
             this.inputNode.setCustomValidity('')
+            document.querySelector(`span[id='${this.inputNode.id}-error']`).innerHTML = null
         } else {
             let message = this.inputNode.CustomValidations.getInvalidities();
             this.inputNode.setCustomValidity(message)
+            document.querySelector(`span[id='${this.inputNode.id}-error']`).innerHTML = message
         }
     },
 
