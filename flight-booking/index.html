@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="
+https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js
+"></script>
     <title>Flight booking</title>
 </head>
 <body>
@@ -26,40 +29,40 @@
                 <div class="flight-container">
                     <div class="input-container">
                         <label for="from-place">from</label>
-                        <input type="text" placeholder="city or airport" name="from-place">
+                        <input type="text" placeholder="city or airport" id="from-place">
                     </div>
                     <div class="input-container" id="to-place-container">
                         <label for="to-place">to</label>
-                        <input type="text" placeholder="city or airport" id="to-place" >
+                        <input type="text" placeholder="city or airport" id="to-place">
                     </div>
                 </div>
             </div>
             <div id="multi-city-container">
                 <div class="flight-container" id="flight-1">
                     <div class="input-container">
-                        <label for="from-place">from</label>
+                        <label for="from-place-1">from</label>
                         <input type="text" placeholder="city or airport" id="from-place-1">
                     </div>
                     <div class="input-container">
-                        <label for="to-place">to</label>
+                        <label for="to-place-1">to</label>
                         <input type="text" placeholder="city or airport" id="to-place-1">
                     </div>
                     <div class="input-container">
-                        <label for="outbound-date">outbound date</label>
+                        <label for="outbound-date-1">outbound date</label>
                         <input type="date" placeholder="yyyy-mm-dd" id="outbound-date-1">
                     </div>
                 </div>
                 <div class="flight-container" id="flight-2">
                     <div class="input-container">
-                        <label for="from-place">from</label>
+                        <label for="from-place-2">from</label>
                         <input type="text" placeholder="city or airport" id="from-place-2">
                     </div>
                     <div class="input-container">
-                        <label for="to-place">to</label>
+                        <label for="to-place-2">to</label>
                         <input type="text" placeholder="city or airport" id="to-place-2">
                     </div>
                     <div class="input-container">
-                        <label for="outbound-date">outbound date</label>
+                        <label for="outbound-date-2">outbound date</label>
                         <input type="date" placeholder="yyyy-mm-dd" id="outbound-date-2">
                     </div>
                 </div>
@@ -83,15 +86,16 @@
                 
                 <div id="stepper-container">
                     <div class="stepper-control" id="adult-passenger-stepper">
-                        <label for="adult-passenger-stepper"></label>
-                        <button>-</button>
+                        <label for="adult-passenger-stepper">Adult</label>
+                        <input type="button" value="-" id="adult-passenger-remove">
                         <span id="adult-passenger-count">0</span>
-                        <button>+</button>
+                        <input type="button" value="+" id="adult-passenger-add">
                     </div>
                     <div class="stepper-control" id="childer-passenger-stepper">
-                        <button>-</button>
+                        <label for="adult-passenger-stepper">children</label>
+                        <input type="button" value="-" id="children-passenger-remove">
                         <span id="children-passenger-count">0</span>
-                        <button>+</button>
+                        <input type="button" value="+" id="children-passenger-add">
                     </div>
                 </div>
             </div>
@@ -103,6 +107,7 @@
                     <option value="first-class">first class</option>
                 </select>
             </div>
+            <input type="submit" value="get flights">
         </form>
     </div>
     <script src="./flight-booking.js" />

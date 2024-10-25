@@ -116,6 +116,7 @@ let validate = function() {
     for(let i = 0; i < inputs.length; i++) {
         inputs[i].CustomValidations.checkInput();
     }
+    document.querySelector('form').reportValidity()
 }
 
 submit.addEventListener('click', validate)
