@@ -1,0 +1,178 @@
+body {
+    background: url('./background.jpg');
+    background-size: 100vw 100vh;
+    font-family: "Afacad Flux", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #e2b8a5;
+}
+
+.text-container h1 {
+    text-transform: uppercase;
+    font-size: 40px;
+    text-align: center;
+}
+
+.text-container p {
+    font-size: 20px;
+    text-align: justify;
+}
+
+.form-container {
+    backdrop-filter: blur(10px);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+}
+
+.form-container form {
+    font-size: 18px;
+}
+
+.flight-type-container {
+    margin-bottom: 1rem;
+}
+
+fieldset {
+    border: none;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+fieldset legend {
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+    text-align: center;
+}
+
+fieldset .input-control {
+    text-align: left;
+    min-width: 150px;
+    background: white;
+    border: 2px solid #af8976;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+fieldset .input-container {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+span[id$="-error"] {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+}
+
+
+fieldset .input-control:hover, input[type='radio'] {
+    border-color: orange;
+    outline: orange;
+}
+
+.radio-control {
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}
+
+input[type='radio'] {
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid #af8976;
+    border-radius: 50%;
+    transform: translateY(0.18em);
+    margin-right: 5px;
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #af8976;
+}
+
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.input-control label {
+    color: #af8976;
+}
+
+input[type='text'], input[type='text']:focus, input[type='date'], input[type='date']:focus, select {
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+select {
+    text-transform: capitalize !important;
+}
+
+.stepper-container label {
+    font-size: 14px;
+}
+
+input[type='date'], select {
+    width: 100%;
+}
+
+input[type='button'], input[type='submit'] {
+    padding: 5px 10px;
+    border: 2px solid #af8976;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+input[type='button']:hover, input[type='submit']:hover {
+    border-color: orange;
+    cursor: pointer;
+}
+
+input::placeholder {
+    text-transform: capitalize;
+}
+
+.stepper-control span {
+    padding: 0 5px;
+}
+
+h4 {
+    margin: 0;
+}
+input::-webkit-input-placeholder, input::-ms-input-placeholder, input::-moz-placeholder {
+    text-transform: capitalize;
+}
+

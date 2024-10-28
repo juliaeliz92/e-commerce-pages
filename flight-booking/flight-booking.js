@@ -1,5 +1,3 @@
-let inputs = document.querySelectorAll('input:not([type="submit"]):not([type="button"])');
-
 let roundTripInput = document.getElementById('round-trip')
 let toPlaceInputContainer = document.getElementById('to-place-container')
 let addFlightButtonContainer = document.getElementById('add-flight-container')
@@ -16,7 +14,6 @@ let checkRadioInput = (input) => {
             addFlightButtonContainer.style.display = 'none'
             multiCityContainer.style.display = 'none'
             placeContainer.style.display = 'block'
-            dateContainer.style.display = 'block'
         } 
 
         if(input.id === 'round-trip' || input.id === 'multi-city') {
@@ -31,7 +28,6 @@ let checkRadioInput = (input) => {
             addFlightButtonContainer.style.display = 'block'
             multiCityContainer.style.display = 'block'
             placeContainer.style.display = 'none'
-            dateContainer.style.display = 'none'
         }
     }
 }
@@ -45,52 +41,62 @@ for(let i = 0; i < radioInputs.length; i++) {
 checkRadioInput(radioInputs[0])
 
 addFlightButton.addEventListener('click', () => {
-    const fromFlight = document.createElement('input')
-    fromFlight.type = 'text'
-    fromFlight.placeholder = 'city or airport'
-    fromFlight.id = `from-flight-${multiCityContainer.childNodes.length + 1}`
-
-    const fromLabel = document.createElement('label')
-    fromLabel.textContent = 'From'
-    fromLabel.htmlFor = fromFlight.id
-
-    const toFlight = document.createElement('input')
-    toFlight.type = 'text'
-    toFlight.placeholder = 'city or airport'
-    toFlight.id = `to-flight-${multiCityContainer.childNodes.length + 1}`
-
-    const toLabel = document.createElement('label')
-    toLabel.textContent = 'To'
-    toLabel.htmlFor = toFlight.id
-
-    const outBoundDate = document.createElement('input')
-    outBoundDate.type = 'date'
-    outBoundDate.placeholder = 'yyyy-mm-dd'
-    outBoundDate.id = `outbound-date-${multiCityContainer.childNodes.length + 1}`
-
-    const outboundDateLabel = document.createElement('label')
-    outboundDateLabel.textContent = 'Outbound Date'
-    outboundDateLabel.htmlFor = outBoundDate.id
+    const inputs = [
+        {
+            type: 'text',
+            placeholder: 'city or airport',
+            id : `from-flight-${multiCityContainer.children.length + 1}`,
+            label: 'from',
+            errorId: `from-flight-${multiCityContainer.children.length + 1}-error`
+        }, 
+        {
+            type: 'text',
+            placeholder: 'city or airport',
+            id : `to-flight-${multiCityContainer.children.length + 1}`,
+            label: 'to',
+            errorId: `to-flight-${multiCityContainer.children.length + 1}-error`
+        },
+        {
+            type: 'date',
+            placeholder: 'yyyy-mm-dd',
+            id : `outbound-date-${multiCityContainer.children.length + 1}`,
+            label: 'outbound date',
+            errorId: `outbound-date-${multiCityContainer.children.length + 1}-error`
+        }
+    ]
 
     const flightContainer = document.createElement('div')
-    flightContainer.id = `flight-${multiCityContainer.childNodes.length + 1}`
+    flightContainer.id = `flight-${multiCityContainer.children.length + 1}`
     flightContainer.className = 'flight-container'
 
-    const fromInputContainer = document.createElement('div')
-    fromInputContainer.className = 'input-container'
-    fromInputContainer.append(fromLabel)
-    fromInputContainer.append(fromFlight)
+    inputs.map(input => {
+        let element = document.createElement('input')
+        element.type = input.type
+        element.placeholder = input.placeholder
+        element.id = input.id
 
-    const toInputContainer = document.createElement('div')
-    toInputContainer.className = 'input-container'
-    toInputContainer.append(toLabel)
-    toInputContainer.append(toFlight)
+        let label = document.createElement('label')
+        label.textContent = input.label
+        label.htmlFor = input.id
 
-    const outboundInputContainer = document.createElement('div')
-    outboundInputContainer.className = 'input-container'
-    outboundInputContainer.append(outboundDateLabel)
-    outboundInputContainer.append(outBoundDate)
+        let inputControl = document.createElement('div')
+        inputControl.className = 'input-control'
 
+        inputControl.append(label)
+        inputControl.append(element)
+
+        let inputContainer = document.createElement('div')
+        inputContainer.className = 'input-container'
+        inputContainer.append(inputControl)
+
+        let spanError = document.createElement('span')
+        spanError.id = input.errorId
+
+        inputContainer.append(spanError)
+        flightContainer.append(inputContainer)
+    })
+    
+    
     const removeButton = document.createElement('input')
     removeButton.type = 'button'
     removeButton.value = 'remove'
@@ -98,11 +104,7 @@ addFlightButton.addEventListener('click', () => {
         flightContainer.remove()
     })
 
-    flightContainer.append(fromInputContainer)
-    flightContainer.append(toInputContainer)
-    flightContainer.append(outboundInputContainer)
     flightContainer.append(removeButton)
-
     multiCityContainer.append(flightContainer)
 })
 
@@ -215,31 +217,20 @@ let inputValidityCheck = [
 ]
 
 
-for(let i = 0; i < inputs.length ; i++) {
-    inputs[i].CustomValidations = new CustomValidations(inputs[i])
-    inputs[i].CustomValidations.validityChecks = inputValidityCheck;
-    inputs[i].addEventListener('invalid', (e) => {
-        e.target.setCustomValidity(CustomValidations.getInvalidities())
-    })
-}
-
-
-
-
 let submit = document.querySelector('input[type="submit"]')
 let validate = function(e) {
     e.preventDefault()
-    const checkedFlightType = document.querySelector('input[type="radio"]:checked').value
-    if(checkedFlightType === 'round-trip') {
-        const formInputs = document.querySelectorAll('#place-container > .flight-container > .input-container > input')
-        for(let i = 0; i < formInputs.length; i++) {
-            formInputs[i]?.CustomValidations?.checkInput()
-            console.log(formInputs[i].validity.valid)
+    let inputs = document.querySelectorAll('input:not([type="submit"]):not([type="button"]):not([type="radio"])');
+    for(let i = 0; i < inputs.length; i++) {
+        if(inputs[i].offsetWidth > 0 && inputs[i].offsetHeight > 0) {
+            inputs[i].CustomValidations = new CustomValidations(inputs[i])
+            inputs[i].CustomValidations.validityChecks = inputValidityCheck;
+            inputs[i].addEventListener('invalid', (e) => {
+                e.target.setCustomValidity(CustomValidations.getInvalidities())
+            })
+            inputs[i]?.CustomValidations?.checkInput()
         }
-        // console.log(formInputs)
     }
-    
-    // return 1
 }
 
 
