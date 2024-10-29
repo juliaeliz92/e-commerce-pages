@@ -8,48 +8,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Flight booking</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
+    <div class="container p-4 p-lg-0">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-lg-5 p-lg-0">
                 <div class="text-container">
                     <h1>Random Flight</h1>
                     <p>Anytime you visit the islands it is life changing in some way. Breathtaking scenery, friendly faces and the aloha spirit — come for a visit, you won't regret it.</p>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 col-lg-7 p-lg-0">
                 <div class="form-container">
                     <form action="">
                         <fieldset>
                             <legend>Flight booking</legend>
-                            <div class="flight-type-container">
-                                <div class="radio-control">
+                            <div class="flight-type-container d-md-flex">
+                                <div class="radio-control mx-md-2">
                                     <input type="radio" name="flight-type" id="round-trip" value="round-trip" checked>
                                     <label for="round-trip">round trip</label>
                                 </div>
-                                <div class="radio-control">
+                                <div class="radio-control mx-md-2">
                                     <input type="radio" name="flight-type" value="one-way" id="one-way">
                                     <label for="one-way">one way</label>
                                     
                                 </div>
-                                <div class="radio-control">
+                                <div class="radio-control mx-md-2">
                                     <input type="radio" name="flight-type" value="multi-city" id="multi-city">
                                     <label for="multi-city">multi city</label>
                                 </div>
                             </div>
                             <div id="place-container">
-                                <div class="flight-container">
-                                    <div class="input-container">
+                                <div class="flight-container d-md-flex">
+                                    <div class="input-container  mx-md-2">
                                         <div class="input-control">
                                             <label for="from-place">from</label>
                                             <input type="text" placeholder="city or airport" id="from-place">
                                         </div>
                                         <span id="from-place-error"></span>
                                     </div>
-                                    <div class="input-container" id="to-place-container">
+                                    <div class="input-container mx-md-2" id="to-place-container">
                                         <div class="input-control">
                                             <label for="to-place">to</label>
                                             <input type="text" placeholder="city or airport" id="to-place">
@@ -57,15 +58,15 @@
                                         <span id="to-place-error"></span>
                                     </div>
                                 </div>
-                                <div class="flight-container">
-                                    <div class="input-container">
+                                <div class="flight-container d-md-flex">
+                                    <div class="input-container mx-md-2">
                                         <div class="input-control">
                                             <label for="departing-date">departing date</label>
                                             <input type="date" placeholder="yyyy-mm-dd" id="departing-date">
                                         </div>
                                         <span id="departing-date-error"></span>
                                     </div>
-                                    <div class="input-container" id="returning-date-container">
+                                    <div class="input-container mx-md-2" id="returning-date-container">
                                         <div class="input-control">
                                             <label for="returning-date">returning date</label>
                                             <input type="date" placeholder="yyyy-mm-dd" id="returning-date">
@@ -75,22 +76,22 @@
                                 </div>
                             </div>
                             <div id="multi-city-container">
-                                <div class="flight-container" id="flight-1">
-                                    <div class="input-container">
+                                <div class="flight-container d-md-flex" id="flight-1">
+                                    <div class="input-container mx-1">
                                         <div class="input-control">
                                             <label for="from-place-1">from</label>
                                             <input type="text" placeholder="city or airport" id="from-place-1">
                                         </div>
                                         <span id="from-place-1-error"></span>
                                     </div>
-                                    <div class="input-container">
+                                    <div class="input-container mx-1">
                                         <div class="input-control">
                                             <label for="to-place-1">to</label>
                                             <input type="text" placeholder="city or airport" id="to-place-1">
                                         </div>
                                         <span id="to-place-1-error"></span>
                                     </div>
-                                    <div class="input-container">
+                                    <div class="input-container mx-1">
                                         <div class="input-control">
                                             <label for="outbound-date-1">outbound date</label>
                                             <input type="date" placeholder="yyyy-mm-dd" id="outbound-date-1">
@@ -98,22 +99,22 @@
                                         <span id="outbound-date-1-error"></span>
                                     </div>
                                 </div>
-                                <div class="flight-container" id="flight-2">
-                                    <div class="input-container">
+                                <div class="flight-container d-md-flex" id="flight-2">
+                                    <div class="input-container mx-1">
                                         <div class="input-control">
                                             <label for="from-place-2">from</label>
                                             <input type="text" placeholder="city or airport" id="from-place-2">
                                         </div>
                                         <span id="from-place-2-error"></span>
                                     </div>
-                                    <div class="input-container">
+                                    <div class="input-container mx-1">
                                         <div class="input-control">
                                             <label for="to-place-2">to</label>
                                             <input type="text" placeholder="city or airport" id="to-place-2">
                                         </div>
                                         <span id="to-place-2-error"></span>
                                     </div>
-                                    <div class="input-container">
+                                    <div class="input-container mx-1">
                                         <div class="input-control">
                                             <label for="outbound-date-2">outbound date</label>
                                             <input type="date" placeholder="yyyy-mm-dd" id="outbound-date-2">
@@ -125,36 +126,41 @@
                             <div id="add-flight-container">
                                 <input type="button" value="Add flight" id="add-flight-button">
                             </div>
-                            <div class="passenger-container">
-                                <h4>Passengers</h4>
-                                <div id="steppers-container" class="d-flex">
-                                    <div class="stepper-container mx-1">
-                                        <label for="adult-passenger-stepper">Adult(18+)</label>
-                                        <div class="stepper-control" id="adult-passenger-stepper">
-                                            <input type="button" value="-" id="adult-passenger-remove">
-                                            <span id="adult-passenger-count">1</span>
-                                            <input type="button" value="+" id="adult-passenger-add">
+                            <h4 class="text-start w-100">Passengers</h4>
+                            <div class="passenger-container w-100 d-md-flex justify-content-between align-items-center mb-md-5 px-md-2">
+                                <div id="steppers-container" class="mb-5 mb-md-0">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="stepper-container mx-1 mx-md-3">
+                                            <label for="adult-passenger-stepper">Adult(18+)</label>
+                                            <div class="stepper-control" id="adult-passenger-stepper">
+                                                <input type="button" value="-" id="adult-passenger-remove">
+                                                <span id="adult-passenger-count">1</span>
+                                                <input type="button" value="+" id="adult-passenger-add">
+                                            </div>
+                                        </div>
+                                        <div class="stepper-container mx-1 mx-md-3">
+                                            <label for="children-passenger-stepper">children(0-17)</label>
+                                            <div class="stepper-control" id="childer-passenger-stepper">
+                                                <input type="button" value="-" id="children-passenger-remove">
+                                                <span id="children-passenger-count">0</span>
+                                                <input type="button" value="+" id="children-passenger-add">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="stepper-container ml-1">
-                                        <label for="children-passenger-stepper">children(0-17)</label>
-                                        <div class="stepper-control" id="childer-passenger-stepper">
-                                            <input type="button" value="-" id="children-passenger-remove">
-                                            <span id="children-passenger-count">0</span>
-                                            <input type="button" value="+" id="children-passenger-add">
-                                        </div>
+                                    <div class="px-md-3">
+                                        <span id="passenger-error"></span>
                                     </div>
                                 </div>
-                                <span id="passenger-error"></span>
+                                <div class="passenger-class-container input-control mb-4 mb-md-0">
+                                    <label for="travel-class">travel class</label>
+                                    <select id="travel-class" name="travel-class">
+                                        <option value="economy-class">economy class</option>
+                                        <option value="business-class">business class</option>
+                                        <option value="first-class">first class</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="passenger-class-container input-control">
-                                <label for="travel-class">travel class</label>
-                                <select id="travel-class" name="travel-class">
-                                    <option value="economy-class">economy class</option>
-                                    <option value="business-class">business class</option>
-                                    <option value="first-class">first class</option>
-                                </select>
-                            </div>
+                            
                             <input type="submit" value="get flights">
                         </fieldset>
                     </form>

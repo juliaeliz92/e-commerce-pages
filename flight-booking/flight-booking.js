@@ -67,7 +67,7 @@ addFlightButton.addEventListener('click', () => {
 
     const flightContainer = document.createElement('div')
     flightContainer.id = `flight-${multiCityContainer.children.length + 1}`
-    flightContainer.className = 'flight-container'
+    flightContainer.className = 'flight-container d-md-flex'
 
     inputs.map(input => {
         let element = document.createElement('input')
@@ -86,7 +86,7 @@ addFlightButton.addEventListener('click', () => {
         inputControl.append(element)
 
         let inputContainer = document.createElement('div')
-        inputContainer.className = 'input-container'
+        inputContainer.className = 'input-container mx-1'
         inputContainer.append(inputControl)
 
         let spanError = document.createElement('span')
@@ -97,14 +97,19 @@ addFlightButton.addEventListener('click', () => {
     })
     
     
-    const removeButton = document.createElement('input')
-    removeButton.type = 'button'
-    removeButton.value = 'remove'
+    const removeButton = document.createElement('button')
+    const removeIcon = document.createElement('i')
+    removeIcon.className = 'bi bi-x'
+    removeButton.className = 'remove-button'
+    removeButton.append(removeIcon)
     removeButton.addEventListener('click', () => {
         flightContainer.remove()
     })
 
-    flightContainer.append(removeButton)
+    const removeButtonContainer = document.createElement('div')
+    removeButtonContainer.append(removeButton)
+
+    flightContainer.append(removeButtonContainer)
     multiCityContainer.append(flightContainer)
 })
 
@@ -230,6 +235,16 @@ let validate = function(e) {
             })
             inputs[i]?.CustomValidations?.checkInput()
         }
+    }
+    let passengerSpans = document.querySelectorAll('span[id$="-passenger-count"]')
+    let passengerCount = 0
+    for(let i = 0; i < passengerSpans.length; i++) {
+        passengerCount += parseInt(passengerSpans[i].textContent)
+    }
+    if(passengerCount === 0) {
+        document.querySelector('span[id="passenger-error"').innerHTML = 'Passenger count should not be zero!'
+    } else {
+        document.querySelector('span[id="passenger-error"').innerHTML = ''
     }
 }
 
