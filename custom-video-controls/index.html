@@ -1,0 +1,30 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="./styles.css" />
+        <title>Custom Video Controls</title>
+    </head>
+    <body>
+        <div id="video-container">
+            <video src="./video.mp4" width="100%" id="media"></video>
+        
+            <div id="medio-controls">
+                <div id="video-seek-rail">
+                    <div id="video-seek-fill"></div>
+                </div>
+                <div id="media-bottom">
+                    <div id="buttons-container">
+                        <button id="play">Play</button>
+                        <button id="pause">Pause</button>
+                    </div>
+                    <div id="video-duration">
+                        <span id="time-left">00:00</span> /
+                        <span id="time-duration">00:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="index.js" />
+    </body>
+</html>
